@@ -1,0 +1,33 @@
+<%- include("header") -%>
+<body>
+<div class="container">
+  <div class="row row-cols-2">
+  <% favBooks.forEach((book,index) => { %>
+    <div class="col">
+    <div  class="card mb-3 m-4" style="max-width: 540px;">
+      <div class="row no-gutters">
+        <div class="col-md-4 " >
+          <img src="<%=book.thumbNail%>" alt="book cover">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title"><%= book.title %> </h5>
+            <p class="card-text"><small class="text-muted"><%= book.auther %> </small></p>
+            
+            <p class="card-text"><%=book.description != undefined ?book.description.substring(0, 100) + " ...": ""%> </p>
+            <form action="/remove" method="post">
+              <button type="submit" name='rem' value=<%= book.id %>  class="btn btn-danger">Remove Book from Favourite</button>
+            </form>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <%  }); %> 
+  </div>
+</div>
+</body>
+
+<%- include("footer") -%> 

@@ -1,0 +1,18 @@
+<%- include("header") -%> 
+<body>
+   
+  
+   
+    <body>
+        <div class="container mt-5 pt-5">
+            <img src="<%= book.thumbNail %> " class="img-thumbnail float-left m-4 w-25" alt="Book Cover">
+            <h1 class="display-4 m-4"><%= book.title %> </h1>
+            <p><em><%= book.auther %></em></p>
+            <p class="lead"> <%=book.description != undefined ?book.description:"" %></p>
+            <form action="/book/add" method="post">
+                <button type="submit" name="fav" class="btn btn-success" value="<%= book.id %> ">Add Book to Favourite</button>
+            </form>
+        </div>
+</body>
+  <%- include("footer") -%> 
+    
